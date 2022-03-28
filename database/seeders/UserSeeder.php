@@ -20,13 +20,15 @@ class UserSeeder extends Seeder
             'name' => 'riccardo',
             'email' => 'riccardo@gfef.it',
             'password' => Hash::make('123456789'),
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
+            'role_id' => 1,
         ]);
         DB::table('users')->insert([
             'name' => 'andrea',
             'email' => 'andrea@gfef.it',
             'password' => Hash::make('123456789'),
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
+            'role_id' => 2,
         ]);
     }
 }

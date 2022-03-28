@@ -49,4 +49,8 @@ class User extends Authenticatable
     public function annunci() {
         return $this->hasMany(Annuncio::class);
     }
+
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
 }
