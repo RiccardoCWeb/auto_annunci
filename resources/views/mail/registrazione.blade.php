@@ -1,0 +1,1 @@
+<h1>Benvenuto {{$name}}! Ti sei appena registrato con l'email {{$email}}</h1>
