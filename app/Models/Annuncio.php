@@ -27,4 +27,8 @@ class Annuncio extends Model
     {
         return $this->hasOne(Dettaglio::class);
     }
+
+    public function immagini() {
+        return $this->hasMany(Immagine::class);
+    }
 }
