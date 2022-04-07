@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AnnunciController;
+use App\Http\Controllers\AnnunciAdminController;
+use App\Http\Controllers\UserAdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +33,23 @@ Route::get('/admin', function () {
 Route::get('/notauth',function(){
     return view('notauth');
 })->name('notauth');
+
+
+//create
+Route::get('annunci/create', [AnnunciController::class, 'create'])->name('annunci.create')->middleware('auth');
+Route::post('annunci/store', [AnnunciController::class, 'store'])->name('annunci.store');
+//read
+Route::get('annunci', [AnnunciController::class, 'index'])->name('annunci.index')->middleware('auth');
+Route::get('annunci/{id}', [AnnunciController::class, 'show'])->name('annunci.show');
+//update
+Route::get('annunci/{id}/edit', [AnnunciController::class, 'edit'])->name('annunci.edit');
+Route::post('annunci/{id}/update', [AnnunciController::class, 'update'])->name('annunci.update');
+//delete
+Route::get('annunci/{id}/delete', [AnnunciController::class, 'destroy'])->name('annunci.delete')->middleware('auth');
+
+
+Route::get('/admin/users', [UserAdminController::class, 'index'])->middleware('admin')->name('admin.users.index');
+Route::get('/admin/annunci', [AnnunciAdminController::class, 'index'])->middleware('admin')->name('admin.annunci.index');
 
 require __DIR__.'/auth.php';
 

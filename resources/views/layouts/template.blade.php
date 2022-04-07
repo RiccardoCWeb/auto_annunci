@@ -7,7 +7,11 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
     <title>BlogApp - Laravel 8</title>
-    
+    <style>
+      li{
+        list-style-type: none;
+      }
+    </style>
 
     <!-- Bootstrap core CSS 
 <link href="" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->

@@ -11,10 +11,10 @@
             <a class="nav-link active" aria-current="page" href="{{ route('index') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Inserisci un annuncio</a>
+            <a class="nav-link" href="{{ route('annunci.create') }}">Inserisci un annuncio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">I miei annunci</a>
+            <a class="nav-link" href="{{ route('annunci.index') }}">I miei annunci</a>
           </li>
           
           @guest

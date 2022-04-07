@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Recensione extends Model
 {
     use HasFactory;
-    
+    protected $table = 'recensioni';
+
     public function user()
     {
         return $this->belongsTo(User::class);

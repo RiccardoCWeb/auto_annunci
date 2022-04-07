@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Annuncio extends Model
 {
     use HasFactory;
+    protected $table = 'annunci';
     public function user()
     {
         return $this->belongsTo(User::class);

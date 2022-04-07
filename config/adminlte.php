@@ -247,11 +247,14 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Utenti',
+            'url'         => 'admin/users',
+            'icon'        => 'fas fa-fw fa-users',
+        ],
+        [
+            'text'        => 'Posts',
+            'url'         => 'admin/annunci',
+            'icon'        => 'fas fa-fw fa-folder-open',
         ],
         ['header' => 'account_settings'],
         [
