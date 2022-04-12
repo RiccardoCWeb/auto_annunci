@@ -21,10 +21,23 @@
 
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">UTENTE CHE HA INSERITO : <span class="text-capitalize">{{ $annuncio->user->name }}</span></li>
             <li class="list-group-item">MODELLO ID : <span class="text-capitalize">{{ $annuncio->modello->nome }}</span> </li>
             <li class="list-group-item">COMUNE ID : <span class="text-capitalize">{{ $annuncio->comune->comune }}</span> </li>
             <li class="list-group-item">CREATO IL : <span class="text-capitalize">{{ $annuncio->created_at }}</span> </li>
+            <li class="list-group-item">INSERITO DA: 
+                <span class="text-capitalize">{{ $annuncio->user->name }}</span>
+                <form method="POST" action="{{ route('recensioni.store', $annuncio->user_id) }}" >
+                    @csrf
+                    <div class="mt-2 col-12">
+                        <label for="valutazione" class="formlabel text-uppercase">Recensisci l'utente</label>
+                        <input type="number" min="1" max="5" class="form-control mt-2" id="val" name="val" placeholder="Recensisci l'utente con un voto da 1 a 5" required>
+                    </div>
+                    <div class="mt-2 form-check col-9 mx-auto">
+                        <button type="submit" class="btn btn-primary">Invia Recensione</button>
+                    </div>
+                </form>
+            </li>
+
             {{--@if ($annuncio->immagine!=null)
                 <li class="list-group-item"><img style="max-width:250px;" src="/storage/immagini/{{$annuncio->immagine}}"></li>
             @endif

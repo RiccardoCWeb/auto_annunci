@@ -34,7 +34,7 @@
                 </a>
             </form>
           </li>
-          @if (Auth::user()->role_id!=1)
+          @if (Auth::user()->role=='Amministratore')
           <li class="nav-item">
             <a class="nav-link" href="{{ route('adminroute') }}">
               Admin Area

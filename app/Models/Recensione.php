@@ -9,6 +9,7 @@ class Recensione extends Model
 {
     use HasFactory;
     protected $table = 'recensioni';
+    public $timestamps = false;
 
     public function user()
     {

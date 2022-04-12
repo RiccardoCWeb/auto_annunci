@@ -9,6 +9,7 @@ class Dettaglio extends Model
 {
     use HasFactory;
     protected $table = 'dettagli';
+    public $timestamps = false;
 
     public function annuncio() {
         return $this->belongsTo(Annuncio::class);

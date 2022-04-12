@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AnnunciController;
 use App\Http\Controllers\AnnunciAdminController;
+use App\Http\Controllers\RecensioniController;
 use App\Http\Controllers\UserAdminController;
+use App\Models\Annuncio;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $annunci= Annuncio::orderBy('created_at','desc')->paginate(4);
+    return view('index', ['annunci' => $annunci]);
 })->name('index');
 
 
@@ -47,9 +50,13 @@ Route::post('annunci/{id}/update', [AnnunciController::class, 'update'])->name('
 //delete
 Route::get('annunci/{id}/delete', [AnnunciController::class, 'destroy'])->name('annunci.delete')->middleware('auth');
 
-
+//admin
 Route::get('/admin/users', [UserAdminController::class, 'index'])->middleware('admin')->name('admin.users.index');
 Route::get('/admin/annunci', [AnnunciAdminController::class, 'index'])->middleware('admin')->name('admin.annunci.index');
+
+//recensioni
+Route::post('recensioni/{id}', [RecensioniController::class, 'store'])->name('recensioni.store')->middleware('auth');
+
 
 require __DIR__.'/auth.php';
 

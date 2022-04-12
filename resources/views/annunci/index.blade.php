@@ -6,6 +6,11 @@
             {{Session::get('msg')}}
         </div>
     @endif
+    @if (Session::has('autorec'))
+        <div class="alert alert-danger" role="alert">
+            {{Session::get('autorec')}}
+        </div>
+    @endif
     <h1>I Tuoi Annunci</h1>
     <table class="table table-bordered table-striped">
         <tr>
