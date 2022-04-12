@@ -107,7 +107,7 @@
             <textarea class="form-control" placeholder="Scrivi qui..." name="descrizione" id="descrizione" rows="8" style="resize:none;"></textarea>
         </div>
         
-        <div class="mb-3 form-check col-9 mx-auto">
+        <div class="mb-3 form-check col-9 mx-auto text-center" style="padding-left:0!important;">
             <button type="submit" class="btn btn-primary">Continua</button>
         </div>
     </form>

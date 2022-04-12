@@ -76,8 +76,8 @@ class AnnunciController extends Controller
     //$annuncio->immagine = $nome_file[2];
     $annuncio->user_id = Auth::id();
     $annuncio->save();
-    return redirect()->route('annunci.index')->with('msg', 'Annuncio inserito correttamente');
-    }
+    return view('dettagli.create', ['id' => $annuncio->id]);
+}
 
     public function show($id)
     {

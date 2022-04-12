@@ -23,7 +23,7 @@
 
 </div>
 
-<div class="container">
+<div class="container w-100">
     @foreach ($annunci as $annuncio)
         <div class="card m-2" style="width:45%; float:left;">
             <div class="card-body">
@@ -39,5 +39,10 @@
             </div>
         </div>
     @endforeach
+    
 </div>
+<div class="container w-100">
+    <div>{{$annunci->links()}}</div>
+</div>
+
 @endsection

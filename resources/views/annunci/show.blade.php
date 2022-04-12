@@ -21,8 +21,9 @@
 
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">MODELLO ID : <span class="text-capitalize">{{ $annuncio->modello->nome }}</span> </li>
-            <li class="list-group-item">COMUNE ID : <span class="text-capitalize">{{ $annuncio->comune->comune }}</span> </li>
+            <li class="list-group-item">MODELLO : <span class="text-capitalize">{{ $annuncio->modello->nome }}</span> </li>
+            <li class="list-group-item">MARCA : <span class="text-capitalize">{{ $annuncio->modello->marca->nome }}</span> </li>
+            <li class="list-group-item">COMUNE : <span class="text-capitalize">{{ $annuncio->comune->comune }}</span> </li>
             <li class="list-group-item">CREATO IL : <span class="text-capitalize">{{ $annuncio->created_at }}</span> </li>
             <li class="list-group-item">INSERITO DA: 
                 <span class="text-capitalize">{{ $annuncio->user->name }}</span>
@@ -37,7 +38,42 @@
                     </div>
                 </form>
             </li>
-
+            @if ($annuncio->dettaglio)
+            <li class="list-group-item">
+                <h1>Dettagli</h1>
+            </li>
+            <li class="list-group-item">
+                PROPRIETARI : <span class="text-capitalize">{{ $annuncio->dettaglio->proprietari }}</span> 
+            </li>
+            <li class="list-group-item">
+                CAMBIO : <span class="text-capitalize">{{ $annuncio->dettaglio->cambio }}</span> 
+            </li>
+            <li class="list-group-item">
+                VERNICE : <span class="text-capitalize">{{ $annuncio->dettaglio->vernice }}</span> 
+            </li>
+            <li class="list-group-item">
+                RIVESTIMENTI : <span class="text-capitalize">{{ $annuncio->dettaglio->rivestimenti }}</span> 
+            </li>
+            <li class="list-group-item">
+                POSTI : <span class="text-capitalize">{{ $annuncio->dettaglio->posti }}</span> 
+            </li>
+            <li class="list-group-item">
+                PORTE : <span class="text-capitalize">{{ $annuncio->dettaglio->porte }}</span> 
+            </li>
+            <li class="list-group-item">
+                CONSUMI : <span class="text-capitalize">{{ $annuncio->dettaglio->consumi }}</span> 
+            </li>
+            <li class="list-group-item">
+                EMISSIONI : <span class="text-capitalize">{{ $annuncio->dettaglio->emissioni }}</span> 
+            </li>
+            <li class="list-group-item">
+                EQUIPAGGIAMENTO : <span class="text-capitalize">{{ $annuncio->dettaglio->equipaggiamento }}</span> 
+            </li>
+            @else
+            <li class="list-group-item">
+                <h5>Non ci sono ulteriori dettagli inseriti per questo annuncio</h5>
+            </li>
+            @endif
             {{--@if ($annuncio->immagine!=null)
                 <li class="list-group-item"><img style="max-width:250px;" src="/storage/immagini/{{$annuncio->immagine}}"></li>
             @endif

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnnunciController;
 use App\Http\Controllers\AnnunciAdminController;
+use App\Http\Controllers\DettagliController;
 use App\Http\Controllers\RecensioniController;
 use App\Http\Controllers\UserAdminController;
 use App\Models\Annuncio;
@@ -57,6 +58,13 @@ Route::get('/admin/annunci', [AnnunciAdminController::class, 'index'])->middlewa
 //recensioni
 Route::post('recensioni/{id}', [RecensioniController::class, 'store'])->name('recensioni.store')->middleware('auth');
 
+//create
+Route::get('dettagli/create', [DettagliController::class, 'create'])->name('dettagli.create')->middleware('auth');
+Route::post('dettagli/store/{id}', [DettagliController::class, 'store'])->name('dettagli.store')->middleware('auth');
+
+//create
+Route::get('immagini/create', [DettagliController::class, 'create'])->name('immagini.create')->middleware('auth');
+Route::post('immagini/store/{id}', [DettagliController::class, 'store'])->name('immagini.store')->middleware('auth');
 
 require __DIR__.'/auth.php';
 
