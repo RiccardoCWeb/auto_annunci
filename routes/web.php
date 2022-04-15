@@ -3,9 +3,11 @@
 use App\Http\Controllers\AnnunciController;
 use App\Http\Controllers\AnnunciAdminController;
 use App\Http\Controllers\DettagliController;
+use App\Http\Controllers\ImmaginiController;
 use App\Http\Controllers\RecensioniController;
 use App\Http\Controllers\UserAdminController;
 use App\Models\Annuncio;
+use App\Models\Immagine;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -59,12 +61,15 @@ Route::get('/admin/annunci', [AnnunciAdminController::class, 'index'])->middlewa
 Route::post('recensioni/{id}', [RecensioniController::class, 'store'])->name('recensioni.store')->middleware('auth');
 
 //create
-Route::get('dettagli/create', [DettagliController::class, 'create'])->name('dettagli.create')->middleware('auth');
-Route::post('dettagli/store/{id}', [DettagliController::class, 'store'])->name('dettagli.store')->middleware('auth');
+Route::get('annunci/{id}/dettagli/create', [DettagliController::class, 'create'])->name('dettagli.create')->middleware('auth');
+Route::post('annunci/{id}/dettagli/store/', [DettagliController::class, 'store'])->name('dettagli.store')->middleware('auth');
 
 //create
-Route::get('immagini/create', [DettagliController::class, 'create'])->name('immagini.create')->middleware('auth');
-Route::post('immagini/store/{id}', [DettagliController::class, 'store'])->name('immagini.store')->middleware('auth');
+Route::get('annunci/{id}/immagini/create/', [ImmaginiController::class, 'create'])->name('immagini.create')->middleware('auth');
+Route::post('annunci/{id}/immagini/store/', [ImmaginiController::class, 'store'])->name('immagini.store')->middleware('auth');
+
+//delete
+Route::get('annunci/immagini/{immagine}/delete/', [ImmaginiController::class, 'destroy'])->name('immagini.delete')->middleware('auth');
 
 require __DIR__.'/auth.php';
 

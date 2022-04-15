@@ -29,9 +29,12 @@
             <div class="card-body">
                 <h5 class="card-title"><a href="{{ route('annunci.show', $annuncio->id) }}"> {{ $annuncio->titolo }}</a></h5>
                 <h6>Modello: {{ $annuncio->modello->nome }} <br> Marca: {{ $annuncio->modello->marca->nome }} <br> {{ $annuncio->prezzo }} €</h6>
-                <div style="height: 100px; margin: 10px 0; display:block;">
-                    @if ($annuncio->immagine!=null)
-                        <img style="max-height:100px; " src="/storage/immagini/{{$post->immagine}}">
+                <div style="margin: 10px 0; display:block;">
+                    @if ($annuncio->immagini!=null)
+                    
+                        @foreach ($annuncio->immagini as $img)
+                            <img style="max-height:100px; " src="/storage/immagini/{{$img->immagine}}">
+                        @endforeach
                     @endif
                 </div>
 

@@ -41,7 +41,9 @@ class DettagliController extends Controller
     $dettaglio->equipaggiamento = $request->equipaggiamento;
 
     $dettaglio->save();
-    return view('immagini.create', ['id' => $id]);
+    //return view('immagini.create', ['id' => $id]);
+    return redirect()->route('immagini.create', $id);
+
     }
 
 }

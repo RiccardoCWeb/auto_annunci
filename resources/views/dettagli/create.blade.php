@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-12 mx-auto">
     <h1 class="text-center">Inserisci dettagli annuncio {{$id}}</h1>
-  
+    <h4 class="text-center"><a href="{{ route('immagini.create', $id) }}">Salta passaggio</a></h4>
 @if ($errors->any())
 <div class="alert alert-danger">
     <ul>

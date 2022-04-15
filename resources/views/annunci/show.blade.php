@@ -74,10 +74,22 @@
                 <h5>Non ci sono ulteriori dettagli inseriti per questo annuncio</h5>
             </li>
             @endif
-            {{--@if ($annuncio->immagine!=null)
-                <li class="list-group-item"><img style="max-width:250px;" src="/storage/immagini/{{$annuncio->immagine}}"></li>
+            
+            @if (count($annuncio->immagini)>0)
+                <div class="container">
+                    <h1 class="w-100 text-center mb-3">Immagini</h1>
+                    <ul class="d-flex justify-content-evenly flex-wrap">
+                        @foreach ($annuncio->immagini as $immagine)
+                            <li class="list-group-item text-center mb-3"><img class="mb-3" style="max-width:500px;" src="/storage/immagini/{{$immagine->immagine}}"></li>
+                        @endforeach
+                    </ul>
+                </div>
+            @else
+                <li class="list-group-item">
+                    <h5>Non ci sono immagini inserite per questo annuncio</h5>
+                </li>
             @endif
-            <li class="list-group-item"><a href="{{ route('annunci.createcomments', $annuncio->id) }}">Commenta il post</a></li>--}}
+            
         </ul>
         
 

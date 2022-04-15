@@ -76,7 +76,8 @@ class AnnunciController extends Controller
     //$annuncio->immagine = $nome_file[2];
     $annuncio->user_id = Auth::id();
     $annuncio->save();
-    return view('dettagli.create', ['id' => $annuncio->id]);
+    //return view('dettagli.create', ['id' => $annuncio->id]);
+    return redirect()->route('dettagli.create', $annuncio->id);
 }
 
     public function show($id)
@@ -123,10 +124,18 @@ class AnnunciController extends Controller
     {
      $annuncio = Annuncio::find($id);
      if(Auth::id()==$annuncio->user->id){
+        if ($annuncio->immagini!=null){
+            foreach ($annuncio->immagini as $img){
+                Storage::delete('public/immagini/'.$img->immagine);
+            }
+        }
+        
 
-        /*if(Storage::exists('public/immagini/'.$annuncio->immagine)){
-            Storage::delete('public/immagini/'.$annuncio->immagine);
+
+        /*if(Storage::exists('public/immagini/'.$annuncio->immagini->immagine)){
+            Storage::delete('public/immagini/'.$annuncio->immagini->immagine);
         }*/
+
          $annuncio->delete();
          return redirect()->route('annunci.index')->with('msg', 'Annuncio eliminato correttamente');
     }
